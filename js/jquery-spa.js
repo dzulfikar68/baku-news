@@ -17,9 +17,12 @@ $(document).on('click','[data-link]', function (e) {
 
    var routes = page.substring(0,page.lastIndexOf('.'));//remove file extension that shows up in the url bar.
 
+   sessionStorage.setItem("nav-parent", routes);
+
    window.history.pushState(null,null,routes);//assign new url to address bar and add page in browser history without reloading the page.
       
    console.log("Ajax loaded: "+page);
+   console.log("sessionStorage: "+routes);
 
    $.get(page, function (pageContent) {//return selected page content trough ajax.
       $("#container").html(pageContent);//load content into main div
