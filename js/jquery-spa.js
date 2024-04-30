@@ -10,19 +10,24 @@ console.log(performance.navigation.type);
 
 //when user clicks on any anchor tag with a data-link attribute fire this event.
 $(document).on('click','[data-link]', function (e) {
-
    e.preventDefault();//prevent anchor click default behaviour.
 
    var page = $(this).attr('href');//get url from clicked link.
-
    var routes = page.substring(0,page.lastIndexOf('.'));//remove file extension that shows up in the url bar.
 
-   sessionStorage.setItem("nav-parent", routes);
+   var navId = $(this).attr('id')
+   var id = navId.replace("nav-", "")
+   
+   var listPops = sessionStorage.getItem("nav-pops").split(",");
+   listPops.push(id)
+   sessionStorage.setItem("nav-pops", listPops.toString())
+
+   $('#nav-top > a').each(function () { 
+      $(this).removeClass("active")
+   });
+   $('#nav-'+id).addClass("active")
 
    window.history.pushState(null,null,routes);//assign new url to address bar and add page in browser history without reloading the page.
-      
-   console.log("Ajax loaded: "+page);
-   console.log("sessionStorage: "+routes);
 
    $.get(page, function (pageContent) {//return selected page content trough ajax.
       $("#container").html(pageContent);//load content into main div
@@ -34,16 +39,24 @@ $(document).on('click','[data-link]', function (e) {
 //when window's history changes fire this event.
 //e.g When user goes back or forward in a session browser.
  $(window).on('popstate', function (){
+   var url = window.location.href;//get page url from address bar.
+   var routes = url.substring(url.lastIndexOf('/')+1);//return page route from url.
+   var page = routes != '' ? url+".html" : "home.html" ;//if route is empty assign home.html to page to ajax load the default content.
 
-  var url = window.location.href;//get page url from address bar.
-  var routes = url.substring(url.lastIndexOf('/')+1);//return page route from url.
-  var page = routes != '' ? url+".html" : "home.html" ;//if route is empty assign home.html to page to ajax load the default content.
+   var listPops = sessionStorage.getItem("nav-pops").split(",")
+   listPops.pop()
+   sessionStorage.setItem("nav-pops", listPops.toString())
 
-  console.log(page);
+   var id = listPops.slice(-1)
+   console.log(id)
+   $('#nav-top > a').each(function () { 
+      $(this).removeClass("active")
+   });
+   $('#nav-'+id).addClass("active")
 
-  $.get(page, function (pageContent) {//return selected page content trough ajax.
-   $("#container").html(pageContent);//load content into main div
-  });
+   $.get(page, function (pageContent) {//return selected page content trough ajax.
+      $("#container").html(pageContent);//load content into main div
+   });
 });
 
 
@@ -57,7 +70,7 @@ $(document).on('click','[data-link]', function (e) {
   var routes = url.substring(url.lastIndexOf('/')+1);//return page route from url.
   var page = routes != '' ? url+".html" : "home.html" ;//if route is empty assign home.html to page to ajax load the default content.
 
-  console.log(page);
+  sessionStorage.setItem("nav-pops", ["home"].toString())
 
   $.get(page, function (pageContent) {//return selected page content trough ajax.
    $("#container").html(pageContent);//load content into main div

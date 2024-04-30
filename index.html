@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>W3.CSS Template</title>
+<title>Berita Andalan Ku</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -26,27 +26,44 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
    color: white;
    text-align: center;
 }
+#nav-top > .active {
+  background-color: grey;
+}
+#nav-side > .active {
+  background-color: silver;
+}
+.upRightPositionFixed {
+     position: fixed;
+     top: 0px;
+     right: 0px;
+     z-index:99999
+}
+.demo {
+     background-color: HotPink;
+     padding: 20px;
+     margin: 5px;
+}
 </style>
 </head>
 <body>
 
 <!-- Navbar -->
 <div class="w3-top">
-  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+  <div id="nav-top" class="w3-bar w3-theme w3-top w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
-    <a href="home.html" class="w3-bar-item w3-button w3-theme-l1" data-link>Logo</a>
-    <a href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>Antara</a>
-    <a href="contact.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>CNBC</a>
-    <a href="home.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>CNN</a>
-    <a href="about.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>JPNN</a>
-    <a href="contact.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white" data-link>Kumparan</a>
-    <a href="home.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>Merdeka</a>
-    <a href="about.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>Okezone</a>
-    <a href="contact.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white" data-link>Republika</a>
-    <a href="home.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>Sindonews</a>
-    <a href="about.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>Suara</a>
-    <a href="contact.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white" data-link>Tempo</a>
-    <a href="contact.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white" data-link>Tribun</a>
+    <a id="nav-home" href="home.html" class="w3-bar-item w3-button w3-theme-l1" data-link>Berita Andalan Ku</a>
+    <a id="nav-antara" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>Antara</a>
+    <a id="nav-cnbc" href="contact.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>CNBC</a>
+    <a id="nav-cnn" href="home.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>CNN</a>
+    <a id="nav-jpnn" href="about.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>JPNN</a>
+    <a id="nav-kumparan" href="contact.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white" data-link>Kumparan</a>
+    <a id="nav-merdeka" href="home.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>Merdeka</a>
+    <a id="nav-okezone" href="about.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>Okezone</a>
+    <a id="nav-republika" href="contact.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white" data-link>Republika</a>
+    <a id="nav-sindonews" href="home.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>Sindonews</a>
+    <a id="nav-suara" href="about.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>Suara</a>
+    <a id="nav-tempo" href="contact.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white" data-link>Tempo</a>
+    <a id="nav-tribun" href="contact.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white" data-link>Tribun</a>
   </div>
 </div>
 
@@ -57,8 +74,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
   </a>
   <h4 class="w3-bar-item"><b>Menu</b></h4>
   <div id="nav-side">
-    <a id="terbaru" class="w3-bar-item w3-button w3-hover-black" href="">Terbaru</a>
-    <a id="terbaru2" class="w3-bar-item w3-button w3-hover-black" href="">Terbaru</a>
+    <a onclick="return false;" " class="w3-bar-item w3-button w3-hover-black active">Home</a>
   </div>
 </nav>
 
@@ -80,6 +96,10 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
       <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
     </div>
   </footer>
+
+  <div class="demo upRightPositionFixed">
+    I'm a Div!
+ </div>
 
 <!-- END MAIN -->
 </div>
