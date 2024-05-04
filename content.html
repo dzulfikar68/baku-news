@@ -2,39 +2,176 @@
     document.title = "Content";
 </script>
 
-<h2>Welcome to SPA no hash(#) with JQuery</h2>
+<style>
+    a {
+        text-decoration: none !important;
+    }
+    .img-responsive {
+        width: 100%;
+        height: auto;
+        margin-top: 30px;
+    }
+    .img-responsive-banner {
+        width: 20%;
+        height: auto;
+        margin-top: 30px;
+    }
+    #empty-list{
+        transition: all 0.6s;
+        height: 100%;
+        font-family: 'Lato', sans-serif;
+        color: #888;
+        margin: 0;
+        display: table;
+        width: 100%;
+        height: 50vh;
+        text-align: center;
+    }
+    .fof{
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .fof h1{
+        font-size: 50px;
+        display: inline-block;
+        padding-right: 12px;
+        animation: type .5s alternate infinite;
+    }
+    @keyframes type{
+        from{box-shadow: inset -3px 0px 0px #888;}
+        to{box-shadow: inset -3px 0px 0px transparent;}
+    }
+    .loader {
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid blue;
+        border-right: 16px solid green;
+        border-bottom: 16px solid red;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+    }
+    @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+    }
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+    #news-banner {
+        margin-bottom: -30px;
+    }
+</style>
 
-<div id="content-list"></div>
-
-<div class="w3-row">
-<div class="w3-twothird w3-container">
-    <h1 class="w3-text-teal">Heading</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum
-    dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
-<div class="w3-third w3-container">
-    <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
-    <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p>
-</div>
+<div id="contain-list">
+    <a class="news-link" href="."><img id="news-banner" class="center img-responsive-banner w3-border w3-center" alt="img-banner"><br/></br></a>
+    <a style="color: blue;" class="news-link" href="."><h2 style="text-align:center;" id="news-title"></h2></a>
+    <h5 style="text-align:center;" id="news-description"></h5><br/><hr/>
+    <div><i><h4 style="margin-left: 15px; color: red;" id="news-submenu"></h4></i></div><br/>
+    <div class="loader" style="margin-bottom: 25px;"></div>
+    <div id="content-list"></div>
 </div>
 
+<div id="empty-list">
+    <div class="fof">
+        <h1>Data tidak tersedia.</h1>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/news.js"></script>
 <script>
-    $("#nav-side").empty()
-    $("#nav-side").append(`<a id="terbaru3" class="w3-bar-item w3-button w3-hover-black" href="">Terbaru3</a>`)
-    $("#nav-side").append(`<a id="terbaru4" class="w3-bar-item w3-button w3-hover-black" href="">Terbaru4</a>`)
+    function getThisMenu() {
+        var listPops = sessionStorage.getItem("nav-pops").split(",")
+        var id = listPops.slice(-1)
+        return id
+    }
 
-    $.get("https://api-berita-indonesia.vercel.app/antara/terbaru")
-    .done(function(data, status, res){
-        console.log(data)
-        console.log(status)
-        console.log(res.status)
-        // $("#list-items").show()
-        // $("#error-404").hide()
-    }).fail(function(data, status){
-        console.log(data.status)
-        console.log(status)
-        // $("#list-items").hide()
-        // $("#error-404").show()
-    });
+    var menu = getThisMenu()
+    var infoMenu = masterData.news.find(function(item) {
+        return item.name == menu
+    })
+    $("#nav-side").empty()
+    infoMenu.menu.forEach(
+        function(item) {
+            $("#nav-side").append(`<a onclick="return false;" id="subnav-${item.name}" class="w3-bar-item w3-button w3-hover-black class-submenu">${item.title}</a>`)
+        }
+    )
+
+    var firstSubMenu = infoMenu.menu[0]
+    $("#subnav-"+firstSubMenu.name).addClass("active")
+    $("#news-submenu").text("Berita "+firstSubMenu.title)
+
+    function getListNews(thisMenu, thisSubMenu) {
+        $(".loader").show()
+        $.get("https://api-berita-indonesia.vercel.app/" + thisMenu + "/" + thisSubMenu)
+        .done(function(data, status, res){
+            console.log(data)
+
+            $("#news-title").text(data.data.title)
+            $("#news-description").text(data.data.description)
+            $("#news-banner").attr("src", data.data.image);
+            $(".news-link").attr("href", data.data.link)
+            $("#content-list").empty()
+
+            var posts = data.data.posts
+            posts.forEach(e => {
+                var itemView = `
+                <div class="w3-row">
+                    <div class="w3-twothird w3-container item-post">
+                        <a href="${e.link}"><h2 class="w3-text-teal">${e.title}</h3></a>
+                        <p>${e.description}</p>
+                    </div>
+                    <div class="w3-third w3-container">
+                        <img class="img-responsive w3-border w3-center" src="${e.thumbnail}" alt="img-item">
+                        <p style="background-image: url('${e.thumbnail}');">
+                    </div>
+                </div>
+                <hr/>
+                `
+                $("#content-list").append(itemView)
+            });
+
+            console.log(status)
+            console.log(res.status)
+            $("#contain-list").show()
+            $("#empty-list").hide()
+            $(".loader").hide()
+        }).fail(function(data, status){
+            console.log(data.status)
+            console.log(status)
+            $("#contain-list").hide()
+            $("#empty-list").show()
+            $(".loader").hide()
+        });
+    } 
+
+    getListNews(menu, firstSubMenu.name)
+
+    $(".class-submenu").click(
+        function() {
+            $(".class-submenu").removeClass("active")
+            $(this).addClass("active")
+            var thisName = $(this).text()
+            $("#news-submenu").text("Berita "+thisName)
+            var thisId = $(this).attr("id")
+            var subMenuId = thisId.replace("subnav-", "")
+            console.log(subMenuId)
+            getListNews(menu, subMenuId)
+        }
+    )
+
+    // $(".item-post").click(
+    //     function() {
+    //         $("html").css("cursor: wait, auto");
+    //     }
+    // )
         
 </script>

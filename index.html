@@ -39,9 +39,14 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
      z-index:99999
 }
 .demo {
-     background-color: HotPink;
-     padding: 20px;
-     margin: 5px;
+     background-color: silver;
+     padding: 15px;
+     margin: 10px;
+     margin-top: 50px;
+}
+.img-reload {
+    width: 25px;
+    height: 25px;
 }
 </style>
 </head>
@@ -51,19 +56,20 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 <div class="w3-top">
   <div id="nav-top" class="w3-bar w3-theme w3-top w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
-    <a id="nav-home" href="home.html" class="w3-bar-item w3-button w3-theme-l1" data-link>Berita Andalan Ku</a>
+    <!-- <a id="nav-home" href="home.html" class="w3-bar-item w3-button w3-theme-l1" data-link>Berita Andalan Ku</a> -->
+    <a id="nav-home" href="." class="w3-bar-item w3-button w3-theme-l1">Berita Andalan Ku</a>
     <a id="nav-antara" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>Antara</a>
-    <a id="nav-cnbc" href="contact.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>CNBC</a>
-    <a id="nav-cnn" href="home.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>CNN</a>
-    <a id="nav-jpnn" href="about.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>JPNN</a>
-    <a id="nav-kumparan" href="contact.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white" data-link>Kumparan</a>
-    <a id="nav-merdeka" href="home.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>Merdeka</a>
-    <a id="nav-okezone" href="about.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>Okezone</a>
-    <a id="nav-republika" href="contact.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white" data-link>Republika</a>
-    <a id="nav-sindonews" href="home.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>Sindonews</a>
-    <a id="nav-suara" href="about.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>Suara</a>
-    <a id="nav-tempo" href="contact.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white" data-link>Tempo</a>
-    <a id="nav-tribun" href="contact.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white" data-link>Tribun</a>
+    <a id="nav-cnbc" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>CNBC</a>
+    <a id="nav-cnn" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>CNN</a>
+    <a id="nav-jpnn" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>JPNN</a>
+    <a id="nav-kumparan" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white" data-link>Kumparan</a>
+    <a id="nav-merdeka" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>Merdeka</a>
+    <a id="nav-okezone" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>Okezone</a>
+    <a id="nav-republika" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white" data-link>Republika</a>
+    <a id="nav-sindonews" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>Sindonews</a>
+    <a id="nav-suara" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>Suara</a>
+    <a id="nav-tempo" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white" data-link>Tempo</a>
+    <a id="nav-tribun" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white" data-link>Tribun</a>
   </div>
 </div>
 
@@ -74,7 +80,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
   </a>
   <h4 class="w3-bar-item"><b>Menu</b></h4>
   <div id="nav-side">
-    <a onclick="return false;" " class="w3-bar-item w3-button w3-hover-black active">Home</a>
+    <a onclick="return false;" class="w3-bar-item w3-button w3-hover-black active">Home</a>
   </div>
 </nav>
 
@@ -98,11 +104,14 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
   </footer>
 
   <div class="demo upRightPositionFixed">
-    I'm a Div!
+    <a href="."><img class="img-reload" src="images/reload.png" alt="img-reload"></a>
  </div>
 
 <!-- END MAIN -->
 </div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-spa.js"></script>
 
 <script>
 // Get the Sidebar
@@ -127,10 +136,12 @@ function w3_close() {
   mySidebar.style.display = "none";
   overlayBg.style.display = "none";
 }
-</script>
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/jquery-spa.js"></script>
+window.beforeunload = function() {
+  console.log("xxx")
+}
+
+</script>
 
 </body>
 </html>

@@ -77,10 +77,12 @@ $(document).on('click','[data-link]', function (e) {
   });
 });
 
-window.onbeforeunload = function(e) {
-   e.preventDefault()
-   return false;
-}
+// window.onbeforeunload = function(e) {
+//    e.preventDefault()
+//    return false;
+// }
+
+window.onbeforeunload = null
 
 // $("#xxx").click(function(){
 //    $("#container").load("contact.html")
