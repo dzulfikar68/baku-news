@@ -291,8 +291,170 @@ var masterData = {
                 },
             ]
         },
+        {
+            "name": "sindonews",
+            "title": "Sindonews",
+            "menu": [
+                {
+                    "name": "terbaru",
+                    "title": "Terbaru",
+                },
+                {
+                    "name": "nasional",
+                    "title": "Nasional",
+                },
+                {
+                    "name": "metro",
+                    "title": "Metro",
+                },
+                {
+                    "name": "ekbis",
+                    "title": "Ekbis",
+                },
+                {
+                    "name": "international",
+                    "title": "International",
+                },
+                {
+                    "name": "daerah",
+                    "title": "Daerah",
+                },
+                {
+                    "name": "sports",
+                    "title": "Sports",
+                },
+                {
+                    "name": "otomotif",
+                    "title": "Otomotif",
+                },
+                {
+                    "name": "tekno",
+                    "title": "Tekno",
+                },
+                {
+                    "name": "sains",
+                    "title": "Sains",
+                },
+                {
+                    "name": "edukasi",
+                    "title": "Edukasi",
+                },
+                {
+                    "name": "lifestyle",
+                    "title": "Lifestyle",
+                },
+                {
+                    "name": "kalam",
+                    "title": "Kalam",
+                },
+            ]
+        },
+        {
+            "name": "suara",
+            "title": "Suara",
+            "menu": [
+                {
+                    "name": "terbaru",
+                    "title": "Terbaru",
+                },
+                {
+                    "name": "bisnis",
+                    "title": "Bisnis",
+                },
+                {
+                    "name": "bola",
+                    "title": "Bola",
+                },
+                {
+                    "name": "lifestyle",
+                    "title": "Lifestyle",
+                },
+                {
+                    "name": "entertainment",
+                    "title": "Entertainment",
+                },
+                {
+                    "name": "otomotif",
+                    "title": "Otomotif",
+                },
+                {
+                    "name": "tekno",
+                    "title": "Tekno",
+                },
+                {
+                    "name": "health",
+                    "title": "Health",
+                },
+            ]
+        },
+        {
+            "name": "tempo",
+            "title": "Tempo",
+            "menu": [
+                {
+                    "name": "nasional",
+                    "title": "Nasional",
+                },
+                {
+                    "name": "bisnis",
+                    "title": "Bisnis",
+                },
+                {
+                    "name": "metro",
+                    "title": "Metro",
+                },
+                {
+                    "name": "dunia",
+                    "title": "Dunia",
+                },
+                {
+                    "name": "bola",
+                    "title": "Bola",
+                },
+                {
+                    "name": "cantik",
+                    "title": "Cantik",
+                },
+                {
+                    "name": "tekno",
+                    "title": "Tekno",
+                },
+                {
+                    "name": "otomotif",
+                    "title": "Otomotif",
+                },
+                {
+                    "name": "seleb",
+                    "title": "Seleb",
+                },
+                {
+                    "name": "gaya",
+                    "title": "Gaya",
+                },
+                {
+                    "name": "travel",
+                    "title": "Travel",
+                },
+                {
+                    "name": "difabel",
+                    "title": "Difabel",
+                },
+                {
+                    "name": "creativelab",
+                    "title": "Creativelab",
+                },
+                {
+                    "name": "inforial",
+                    "title": "Inforial",
+                },
+                {
+                    "name": "event",
+                    "title": "Event",
+                },
+            ]
+        },
     ]
 }
 
-// terbaru, nasional, metro, ekbis, international, daerah, 
-// sports, otomotif, tekno, sains, edukasi, lifestyle, kalam
+// nasional, bisnis, metro, dunia, bola, cantik, tekno, 
+// otomotif, seleb, gaya, travel, difabel, creativelab, inforial, event

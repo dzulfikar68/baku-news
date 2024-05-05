@@ -114,6 +114,16 @@
         $.get("https://api-berita-indonesia.vercel.app/" + thisMenu + "/" + thisSubMenu)
         .done(function(data, status, res){
             console.log(data)
+            console.log(status)
+            console.log(data.success)
+            console.log(res.status)
+
+            if(!data.success) {
+                $("#contain-list").hide()
+                $("#empty-list").show()
+                $(".loader").hide()
+                return
+            }
 
             $("#news-title").text(data.data.title)
             $("#news-description").text(data.data.description)
@@ -139,8 +149,6 @@
                 $("#content-list").append(itemView)
             });
 
-            console.log(status)
-            console.log(res.status)
             $("#contain-list").show()
             $("#empty-list").hide()
             $(".loader").hide()
