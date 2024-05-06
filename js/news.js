@@ -3,16 +3,26 @@ var masterData = {
         {
             "name": "home",
             "title": "Berita Andalan Ku",
+            "image": "",
             "menu": [
                 {
-                    "name": "main",
-                    "title": "Main",
+                    "name": "home",
+                    "title": "Home",
                 },
+                // {
+                //     "name": "about",
+                //     "title": "About",
+                // },
+                // {
+                //     "name": "contact",
+                //     "title": "Contact",
+                // },
             ]
         },
         {
             "name": "antara",
             "title": "Antara",
+            "image": "https://www.antaranews.com/img/antaranews.com.png",
             "menu": [
                 {
                     "name": "terbaru",
@@ -68,6 +78,7 @@ var masterData = {
         {
             "name": "cnbc",
             "title": "CNBC",
+            "image": "https://cdn.cnbcindonesia.com/cnbc/images/logo_cnbc_wide.png",
             "menu": [
                 {
                     "name": "terbaru",
@@ -114,6 +125,7 @@ var masterData = {
         {
             "name": "cnn",
             "title": "CNN",
+            "image": "https://imi.remotivi.or.id/assets/images/header-cnn.png",
             "menu": [
                 {
                     "name": "terbaru",
@@ -152,6 +164,7 @@ var masterData = {
         {
             "name": "jpnn",
             "title": "JPNN",
+            "image": "https://www.jpnn.com/assets/img/logojpnncom.png",
             "menu": [
                 {
                     "name": "terbaru",
@@ -162,6 +175,7 @@ var masterData = {
         {
             "name": "kumparan",
             "title": "Kumparan",
+            "image": "https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_320/v1606836797/szedbshhhmsmebk6cs5y.png",
             "menu": [
                 {
                     "name": "terbaru",
@@ -172,6 +186,7 @@ var masterData = {
         {
             "name": "merdeka",
             "title": "Merdeka",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Logo_merdeka_com.png",
             "menu": [
                 {
                     "name": "terbaru",
@@ -218,6 +233,7 @@ var masterData = {
         {
             "name": "okezone",
             "title": "Okezone",
+            "image": "https://cdn.okezone.com/underwood/revamp/2020/img/xokezone2020.png.pagespeed.ic.o1H1D1nrFk.png",
             "menu": [
                 {
                     "name": "terbaru",
@@ -256,6 +272,7 @@ var masterData = {
         {
             "name": "republika",
             "title": "Republika",
+            "image": "https://static.republika.co.id/files/images/logo.png",
             "menu": [
                 {
                     "name": "terbaru",
@@ -294,6 +311,7 @@ var masterData = {
         {
             "name": "sindonews",
             "title": "Sindonews",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Logo-sindonews.png",
             "menu": [
                 {
                     "name": "terbaru",
@@ -352,6 +370,7 @@ var masterData = {
         {
             "name": "suara",
             "title": "Suara",
+            "image": "https://assets.suara.com/suara/mobile/images/suara-default.jpg",
             "menu": [
                 {
                     "name": "terbaru",
@@ -390,6 +409,7 @@ var masterData = {
         {
             "name": "tempo",
             "title": "Tempo",
+            "image": "https://www.tempo.co/images/logo-tempo.png",
             "menu": [
                 {
                     "name": "nasional",
@@ -453,8 +473,56 @@ var masterData = {
                 },
             ]
         },
+        {
+            "name": "tribun",
+            "title": "Tribun",
+            "image": "https://asset-1.tstatic.net/img/logo/tribun/png/tribunnews.png",
+            "menu": [
+                {
+                    "name": "terbaru",
+                    "title": "Terbaru",
+                },
+                {
+                    "name": "bisnis",
+                    "title": "Bisnis",
+                },
+                {
+                    "name": "superskor",
+                    "title": "Superskor",
+                },
+                {
+                    "name": "sport",
+                    "title": "Sport",
+                },
+                {
+                    "name": "seleb",
+                    "title": "Seleb",
+                },
+                {
+                    "name": "lifestyle",
+                    "title": "Lifestyle",
+                },
+                {
+                    "name": "travel",
+                    "title": "Travel",
+                },
+                {
+                    "name": "parapuan",
+                    "title": "Parapuan",
+                },
+                {
+                    "name": "otomotif",
+                    "title": "Otomotif",
+                },
+                {
+                    "name": "techno",
+                    "title": "Techno",
+                },
+                {
+                    "name": "kesehatan",
+                    "title": "Kesehatan",
+                },
+            ]
+        },
     ]
 }
-
-// nasional, bisnis, metro, dunia, bola, cantik, tekno, 
-// otomotif, seleb, gaya, travel, difabel, creativelab, inforial, event

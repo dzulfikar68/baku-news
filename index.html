@@ -4,6 +4,7 @@
 <title>Berita Andalan Ku</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/x-icon" href="images/news.png" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
@@ -38,11 +39,27 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
      right: 0px;
      z-index:99999
 }
-.demo {
+.upRightDownPositionFixed {
+     position: fixed;
+     bottom: 0px;
+     right: 0px;
+     z-index:99999
+}
+.icon-fixed-top {
      background-color: silver;
      padding: 15px;
      margin: 10px;
      margin-top: 50px;
+}
+.icon-fixed-bottom {
+     background-color: silver;
+     padding: 15px;
+     margin: 10px;
+     margin-top: 110px;
+}
+.icon-fixed-down {
+     margin: 10px;
+     margin-bottom: 20px;
 }
 .img-reload {
     width: 25px;
@@ -54,23 +71,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
 <!-- Navbar -->
 <div class="w3-top">
-  <div id="nav-top" class="w3-bar w3-theme w3-top w3-left-align w3-large">
-    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
-    <!-- <a id="nav-home" href="home.html" class="w3-bar-item w3-button w3-theme-l1" data-link>Berita Andalan Ku</a> -->
-    <a id="nav-home" href="." class="w3-bar-item w3-button w3-theme-l1">Berita Andalan Ku</a>
-    <a id="nav-antara" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>Antara</a>
-    <a id="nav-cnbc" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>CNBC</a>
-    <a id="nav-cnn" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>CNN</a>
-    <a id="nav-jpnn" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>JPNN</a>
-    <a id="nav-kumparan" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white" data-link>Kumparan</a>
-    <a id="nav-merdeka" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>Merdeka</a>
-    <a id="nav-okezone" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>Okezone</a>
-    <a id="nav-republika" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white" data-link>Republika</a>
-    <a id="nav-sindonews" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>Sindonews</a>
-    <a id="nav-suara" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>Suara</a>
-    <a id="nav-tempo" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white" data-link>Tempo</a>
-    <a id="nav-tribun" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white" data-link>Tribun</a>
-  </div>
+  <div id="nav-top" class="w3-bar w3-theme w3-top w3-left-align w3-large"></div>
 </div>
 
 <!-- Sidebar -->
@@ -80,7 +81,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
   </a>
   <h4 class="w3-bar-item"><b>Menu</b></h4>
   <div id="nav-side">
-    <a onclick="return false;" class="w3-bar-item w3-button w3-hover-black active">Home</a>
+    <!-- <a onclick="return false;" class="w3-bar-item w3-button w3-hover-black active">Home</a> -->
   </div>
 </nav>
 
@@ -99,19 +100,28 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
   <footer id="myFooter">
     <div class="w3-container w3-theme-l1">
-      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+      <p>Copyright by <a href="https://dzulfikar68.github.io/">dzulfikar68</a>, Powered by <a href="https://www.w3schools.com/w3css/default.asp">w3.css</a></p>
     </div>
   </footer>
 
-  <div class="demo upRightPositionFixed">
-    <a href="."><img class="img-reload" src="images/reload.png" alt="img-reload"></a>
- </div>
+  <div class="icon-fixed-top upRightPositionFixed">
+    <a id="icon-reload" href="javascript:void(0)"><img class="img-reload" src="images/reload.png" alt="img-reload"></a>
+  </div>
+
+  <div class="icon-fixed-bottom upRightPositionFixed" style="background-color: gray;">
+    <a href="."><img class="img-reload" src="images/home.png" alt="img-reload"></a>
+  </div>
+
+  <a onclick="scrollOnTop()" class="icon-fixed-down upRightDownPositionFixed" href="javascript:void(0)">
+    <img height="75px" src="images/news.png" alt="img-reload">
+  </a>
 
 <!-- END MAIN -->
 </div>
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery-spa.js"></script>
+<script type="text/javascript" src="js/news.js"></script>
 
 <script>
 // Get the Sidebar
@@ -137,9 +147,23 @@ function w3_close() {
   overlayBg.style.display = "none";
 }
 
-window.beforeunload = function() {
-  console.log("xxx")
+function scrollOnTop() {
+  window.scrollTo(0,0);
 }
+
+$("#nav-top").empty()
+$("#nav-top").append(`<a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>`)
+masterData.news.forEach(
+  function (value, i) {
+    var text = ``
+    if(i == 0) {
+      text = `<a id="nav-${value.name}" href="." class="w3-bar-item w3-button w3-theme-l1">${value.title}</a>`
+    } else {
+      text = `<a id="nav-${value.name}" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>${value.title}</a>`
+    }
+    $("#nav-top").append(text)
+  }
+);
 
 </script>
 

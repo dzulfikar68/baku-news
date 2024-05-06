@@ -1,5 +1,5 @@
 <script>
-    document.title = "Content";
+    document.title = "Content - BAK News";
 </script>
 
 <style>
@@ -69,15 +69,41 @@
     #news-banner {
         margin-bottom: -30px;
     }
+    .button {
+        background-color: #04AA6D; /* Green */
+        border: none;
+        color: white;
+        padding: 5px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    .button-rounded {
+        border-radius: 8px;
+    }
+    .button-full {
+        width: 100%;
+    }
+    .centered {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
 </style>
 
 <div id="contain-list">
+    <div class="centered"><div class="loader" style=" display: table;"></div></div>
     <a class="news-link" href="."><img id="news-banner" class="center img-responsive-banner w3-border w3-center" alt="img-banner"><br/></br></a>
     <a style="color: blue;" class="news-link" href="."><h2 style="text-align:center;" id="news-title"></h2></a>
     <h5 style="text-align:center;" id="news-description"></h5><br/><hr/>
     <div><i><h4 style="margin-left: 15px; color: red;" id="news-submenu"></h4></i></div><br/>
-    <div class="loader" style="margin-bottom: 25px;"></div>
     <div id="content-list"></div>
+    <a id="btn-read-more" href="javascript:void(0)"><button class="button button-rounded button-full">Read More</button></a>
+    <br/><br/>
 </div>
 
 <div id="empty-list">
@@ -88,6 +114,8 @@
 
 <script type="text/javascript" src="js/news.js"></script>
 <script>
+    $("#btn-read-more").hide()
+
     function getThisMenu() {
         var listPops = sessionStorage.getItem("nav-pops").split(",")
         var id = listPops.slice(-1)
@@ -109,7 +137,12 @@
     $("#subnav-"+firstSubMenu.name).addClass("active")
     $("#news-submenu").text("Berita "+firstSubMenu.title)
 
-    function getListNews(thisMenu, thisSubMenu) {
+    function toUpPage() {
+        window.scrollTo(0,0);
+    }
+
+    function getListNews(thisMenu, thisSubMenu, isRefresh) {
+        toUpPage()
         $(".loader").show()
         $.get("https://api-berita-indonesia.vercel.app/" + thisMenu + "/" + thisSubMenu)
         .done(function(data, status, res){
@@ -129,7 +162,23 @@
             $("#news-description").text(data.data.description)
             $("#news-banner").attr("src", data.data.image);
             $(".news-link").attr("href", data.data.link)
+            $("#btn-read-more").attr("href", data.data.link)
             $("#content-list").empty()
+
+            function getDateStringFormat(date) {
+                var dateString = date.split("T")
+                var dateFirst = dateString[0]
+                var dateSplit = dateFirst.split("-")
+                var dd = dateSplit[2]
+                var mm = dateSplit[1]
+                var yyyy = dateSplit[0]
+                var months = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"]
+                var month = months[parseInt(mm)-1]
+                var day = parseInt(dd)
+                var year = parseInt(yyyy)
+                var formatDate = `${day} ${month} ${year}`
+                return formatDate
+            }
 
             var posts = data.data.posts
             posts.forEach(e => {
@@ -137,11 +186,11 @@
                 <div class="w3-row">
                     <div class="w3-twothird w3-container item-post">
                         <a href="${e.link}"><h2 class="w3-text-teal">${e.title}</h3></a>
+                        <i><h7 style="color: blue;">Dipublikasikan pada: ${getDateStringFormat(e.pubDate)}</h7></i>
                         <p>${e.description}</p>
                     </div>
                     <div class="w3-third w3-container">
-                        <img class="img-responsive w3-border w3-center" src="${e.thumbnail}" alt="img-item">
-                        <p style="background-image: url('${e.thumbnail}');">
+                        <a href="${e.thumbnail}"><img class="img-responsive w3-border w3-center" src="${e.thumbnail}" alt="img-item"><a>
                     </div>
                 </div>
                 <hr/>
@@ -152,12 +201,16 @@
             $("#contain-list").show()
             $("#empty-list").hide()
             $(".loader").hide()
+            $("#btn-read-more").show()
+            // if(isRefresh) toUpPage()
         }).fail(function(data, status){
             console.log(data.status)
             console.log(status)
             $("#contain-list").hide()
             $("#empty-list").show()
             $(".loader").hide()
+            $("#btn-read-more").hide()
+            // if(isRefresh) toUpPage()
         });
     } 
 
@@ -173,6 +226,20 @@
             var subMenuId = thisId.replace("subnav-", "")
             console.log(subMenuId)
             getListNews(menu, subMenuId)
+        }
+    )
+
+    $(".img-clicked").click(
+        function() {
+            var bg = $(this).css('background-image');
+            bg = bg.replace('url(','').replace(')','').replace(/\"/gi, "");
+            window.open(bg);
+        }
+    )
+
+    $("#icon-reload").click(
+        function() {
+            getListNews(menu, firstSubMenu.name, true)
         }
     )
 
