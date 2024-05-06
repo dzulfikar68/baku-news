@@ -3,11 +3,9 @@
 
     var isExist = document.getElementById("nav-top");
     if (isExist == null) {
-        alert("XXX")
-    } else {
-        alert("ZZZ")
+        console.log(window.location)
+        window.location.replace(window.location.href.replace("content", ""))
     }
-    // window.location.replace("http://www.w3schools.com")
 </script>
 
 <style>
