@@ -222,6 +222,12 @@
 
     getListNews(menu, firstSubMenu.name)
 
+    function w3_close() {
+        var mySidebar = document.getElementById("mySidebar");
+        var overlayBg = document.getElementById("myOverlay");
+        mySidebar.style.display = "none";
+        overlayBg.style.display = "none";
+    }
     $(".class-submenu").click(
         function() {
             $(".class-submenu").removeClass("active")
@@ -232,6 +238,7 @@
             var subMenuId = thisId.replace("subnav-", "")
             console.log(subMenuId)
             getListNews(menu, subMenuId)
+            w3_close()
         }
     )
 
