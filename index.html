@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> 
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 .w3-sidebar {
@@ -60,7 +61,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 }
 .icon-fixed-down {
      margin: 10px;
-     margin-bottom: 20px;
+     margin-bottom: 35px;
 }
 .img-reload {
     width: 25px;
@@ -174,7 +175,7 @@ masterData.news.forEach(
   function (value, i) {
     var text = ``
     if(i == 0) {
-      text = `<a id="nav-${value.name}" href="." class="w3-bar-item w3-button w3-theme-l1">${value.title}</a>`
+      text = `<a id="nav-${value.name}" href="." class="w3-bar-item w3-button w3-theme-l1"><i style="margin-right: 5px;" class="fa fa-home"></i>${value.title}</a>`
     } else {
       text = `<a id="nav-${value.name}" href="content.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white" data-link>${value.title}</a>`
     }
