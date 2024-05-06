@@ -1,3 +1,7 @@
+Berita Andalan Ku Yang Up-To-Date dan Terpercaya
+
+Created by dzulfikar68, design web by w3school, and single page by jquery-spa, thanks
+
 # jquery-spa
 
 A simply made single page application(SPA) template that works exactly like a modern SPA site.
